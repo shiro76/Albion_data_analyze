@@ -1,0 +1,480 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:models="clr-namespace:StatisticsAnalysisTool.Models"
+                    xmlns:gl="clr-namespace:System.Globalization;assembly=System.Runtime"
+                    xmlns:bindingModel="clr-namespace:StatisticsAnalysisTool.Models.BindingModel"
+                    xmlns:converters="clr-namespace:StatisticsAnalysisTool.Common.Converters"
+                    mc:Ignorable="d">
+
+    <converters:ShortNumberConverter x:Key="ShortNumberConverter" />
+
+    <Style TargetType="TextBlock" x:Key="LootedChests.Stats.Numbers">
+        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Text.2}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <DataTemplate x:Key="LootedChestsTemplate" DataType="{x:Type models:LootedChests}">
+        <Grid>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,77,0,0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding TranslationLast7Days, FallbackValue=LAST_7_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                            <TextBlock Text="{Binding TranslationLast30Days, FallbackValue=LAST_30_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                            <TextBlock Text="{Binding TranslationLast365Days, FallbackValue=LAST_365_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20,5" MinWidth="200">
+                        <TextBlock Text="{Binding TranslationRandomSoloDungeons, FallbackValue=RANDOM_SOLO_DUNGEONS}" FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="26" Width="26" />
+                                    <Image Source="/Assets/green_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding RandomSoloDungeonCommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomSoloDungeonCommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomSoloDungeonCommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="26" Width="26" />
+                                    <Image Source="/Assets/blue_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding RandomSoloDungeonUncommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomSoloDungeonUncommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomSoloDungeonUncommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="26" Width="26" />
+                                    <Image Source="/Assets/purple_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding RandomSoloDungeonEpicWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomSoloDungeonEpicMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomSoloDungeonEpicYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="26" Width="26" />
+                                    <Image Source="/Assets/gold_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding RandomSoloDungeonLegendaryWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomSoloDungeonLegendaryMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomSoloDungeonLegendaryYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20,5" MinWidth="200">
+                        <TextBlock Text="{Binding TranslationRandomGroupDungeons, FallbackValue=RANDOM_GROUP_DUNGEON}" FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="26" Width="26" />
+                                    <Image Source="/Assets/green_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding RandomGroupDungeonCommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomGroupDungeonCommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomGroupDungeonCommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="26" Width="26" />
+                                    <Image Source="/Assets/blue_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding RandomGroupDungeonUncommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomGroupDungeonUncommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomGroupDungeonUncommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="26" Width="26" />
+                                    <Image Source="/Assets/purple_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding RandomGroupDungeonEpicWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomGroupDungeonEpicMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomGroupDungeonEpicYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="26" Width="26" />
+                                    <Image Source="/Assets/gold_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding RandomGroupDungeonLegendaryWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomGroupDungeonLegendaryMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding RandomGroupDungeonLegendaryYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,77,0,0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding TranslationLast7Days, FallbackValue=LAST_7_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                            <TextBlock Text="{Binding TranslationLast30Days, FallbackValue=LAST_30_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                            <TextBlock Text="{Binding TranslationLast365Days, FallbackValue=LAST_365_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20,5" MinWidth="200">
+                        <TextBlock Text="{Binding TranslationAvalonianRoads, FallbackValue=AVALONIAN_ROADS}" FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/ava_chest.png" Height="45" Width="45" />
+                                    <Image Source="/Assets/green_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding AvalonianRoadCommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding AvalonianRoadCommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding AvalonianRoadCommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/ava_chest.png" Height="45" Width="45" />
+                                    <Image Source="/Assets/blue_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding AvalonianRoadUncommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding AvalonianRoadUncommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding AvalonianRoadUncommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/ava_chest.png" Height="45" Width="45" />
+                                    <Image Source="/Assets/purple_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding AvalonianRoadEpicWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding AvalonianRoadEpicMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding AvalonianRoadEpicYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/ava_chest.png" Height="45" Width="45" />
+                                    <Image Source="/Assets/gold_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding AvalonianRoadLegendaryWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding AvalonianRoadLegendaryMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding AvalonianRoadLegendaryYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20,5" MinWidth="200">
+                        <TextBlock Text="{Binding TranslationOpenWorld, FallbackValue=OPEN_WORLD}" FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/green_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding OpenWorldCommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding OpenWorldCommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding OpenWorldCommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/blue_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding OpenWorldUncommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding OpenWorldUncommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding OpenWorldUncommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/purple_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding OpenWorldEpicWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding OpenWorldEpicMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding OpenWorldEpicYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/gold_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding OpenWorldLegendaryWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding OpenWorldLegendaryMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding OpenWorldLegendaryYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,77,0,0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding TranslationLast7Days, FallbackValue=LAST_7_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                            <TextBlock Text="{Binding TranslationLast30Days, FallbackValue=LAST_30_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                            <TextBlock Text="{Binding TranslationLast365Days, FallbackValue=LAST_365_DAYS}" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" Height="36" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20,5" MinWidth="200">
+                        <TextBlock Text="{Binding TranslationHellGates, FallbackValue=HELLGATES}" FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/green_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding HellGateCommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding HellGateCommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding HellGateCommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/blue_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding HellGateUncommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding HellGateUncommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding HellGateUncommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/purple_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding HellGateEpicWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding HellGateEpicMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding HellGateEpicYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/gold_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding HellGateLegendaryWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding HellGateLegendaryMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding HellGateLegendaryYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--<StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20,5" MinWidth="200">
+                        <TextBlock Text="{Binding TranslationMists, FallbackValue=MISTS}" FontSize="16" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/green_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding MistCommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding MistCommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding MistCommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/blue_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding MistUncommonWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding MistUncommonMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding MistUncommonYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/purple_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding MistEpicWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding MistEpicMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding MistEpicYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="5,0">
+                                <Grid Height="40" Width="40">
+                                    <Image Source="/Assets/static_chest.png" Height="28" Width="28" />
+                                    <Image Source="/Assets/gold_glow.png" Height="40" Width="40" Opacity="0.4" />
+                                </Grid>
+                                <TextBlock Text="{Binding MistLegendaryWeek, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding MistLegendaryMonth, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                                <TextBlock Text="{Binding MistLegendaryYear, StringFormat='{}{0:N0}', FallbackValue=0}" Style="{StaticResource LootedChests.Stats.Numbers}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>-->
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="KillDeathStatsTemplate" DataType="{x:Type bindingModel:DashboardBindings}">
+        <Grid>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,0">
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Vertical" Margin="10,0,10,0">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding TranslationSoloKills, FallbackValue=SOLO_KILLS}" FontSize="24" FontWeight="Bold" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" HorizontalAlignment="Center" />
+                                    <TextBlock Text="*" FontSize="14" Foreground="{StaticResource SolidColorBrush.Text.5}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding SoloKillsToday, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                                    <TextBlock Text="{Binding TranslationToday, StringFormat='{}/{0:N0}', FallbackValue=/today}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding SoloKillsThisWeek, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                                    <TextBlock Text="{Binding TranslationWeek, StringFormat='{}/{0:N0}', FallbackValue=/week}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding SoloKillsThisMonth, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                                    <TextBlock Text="{Binding TranslationMonth, StringFormat='{}/{0:N0}', FallbackValue=/month}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="10,0,10,0">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding TranslationKills, FallbackValue=KILLS}" FontSize="24" FontWeight="Bold" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" HorizontalAlignment="Center" />
+                                    <TextBlock Text="*" FontSize="14" Foreground="{StaticResource SolidColorBrush.Text.5}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding KillsToday, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                                    <TextBlock Text="{Binding TranslationToday, StringFormat='{}/{0:N0}', FallbackValue=/today}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding KillsThisWeek, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                                    <TextBlock Text="{Binding TranslationWeek, StringFormat='{}/{0:N0}', FallbackValue=/week}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding KillsThisMonth, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                                    <TextBlock Text="{Binding TranslationMonth, StringFormat='{}/{0:N0}', FallbackValue=/month}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="10,0,10,0">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding TranslationDeaths, FallbackValue=DEATHS}" FontSize="24" FontWeight="Bold" Foreground="{StaticResource SolidColorBrush.Accent.Red.2}" HorizontalAlignment="Center" />
+                                    <TextBlock Text="*" FontSize="14" Foreground="{StaticResource SolidColorBrush.Text.5}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding DeathsToday, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" 
+                                               Foreground="{StaticResource SolidColorBrush.Accent.Red.2}" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding TranslationToday, StringFormat='{}/{0:N0}', FallbackValue=/today}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding DeathsThisWeek, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" 
+                                               Foreground="{StaticResource SolidColorBrush.Accent.Red.2}" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding TranslationWeek, StringFormat='{}/{0:N0}', FallbackValue=/week}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding DeathsThisMonth, StringFormat='{}{0:N0}', FallbackValue=0}" FontSize="32" FontWeight="Light" 
+                                               Foreground="{StaticResource SolidColorBrush.Accent.Red.2}" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding TranslationMonth, StringFormat='{}/{0:N0}', FallbackValue=/month}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.1}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <TextBlock Text="{Binding TranslationAverageItemPowerWhenKilling, FallbackValue=AVERAGE__ITEM__POWER__WHEN__KILLING}" MinWidth="400" 
+                                           FontSize="14" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding AverageItemPowerWhenKilling, StringFormat='{} {0:N0}', FallbackValue=0}" 
+                                           MinWidth="100" FontSize="24" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <TextBlock Text="{Binding TranslationAverageItemPowerOfTheKilledEnemies, FallbackValue=AVERAGE__ITEM__POWER__OF__THE__KILLED__ENEMIES}" MinWidth="400" 
+                                           FontSize="14" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding AverageItemPowerOfTheKilledEnemies, StringFormat='{} {0:N0}', FallbackValue=0}" 
+                                           MinWidth="100" FontSize="24" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <TextBlock Text="{Binding TranslationAverageItemPowerWhenDying, FallbackValue=AVERAGE__ITEM__POWER__WHEN__DYING}" MinWidth="400" 
+                                           FontSize="14" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding AverageItemPowerWhenDying, StringFormat='{} {0:N0}', FallbackValue=0}" 
+                                           MinWidth="100" FontSize="24" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="10,0,0,10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="{Binding TranslationDataFromAlbionOnlineServers, StringFormat='{}*{0:N0}', FallbackValue=DATA__FROM__ALBION__ONLINE__SERVER}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.5}" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="{Binding TranslationLastUpdate, StringFormat='{}{0:N0}: ', FallbackValue=LAST_UPDATE:}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.5}" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding LastUpdate, StringFormat='{}{0:hh}:{0:mm}:{0:ss} UTC', ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}, FallbackValue=00:00:00}" FontSize="12" Foreground="{StaticResource SolidColorBrush.Text.5}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SilverCostForReSpecTemplate" DataType="{x:Type bindingModel:DashboardBindings}">
+        <Grid>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,0">
+                    <StackPanel HorizontalAlignment="Center">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Grid Width="50" Margin="0,0,10,0" />
+                                <TextBlock Text="{Binding TranslationPaidSilverForReSpecThisSession, FallbackValue=PAID_SILVER_FOR_RESPEC_THIS_SESSION}" MinWidth="350" 
+                                           FontSize="18" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="../Resources/silver.png" Height="14" Width="14" Margin="0,0,10,0" />
+                                    <TextBlock Text="{Binding TotalSilverCostForReSpecInSession, StringFormat='{} -{0:N0}', FallbackValue=0}" 
+                                               MinWidth="100" FontSize="18" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Grid Width="50" Margin="0,0,10,0" />
+                                <TextBlock Text="{Binding TranslationPaidSilverForReSpecPerHour, FallbackValue=PAID_SILVER_FOR_RESPEC_PER_HOUR}" MinWidth="350" 
+                                           FontSize="18" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="../Resources/silver.png" Height="14" Width="14" Margin="0,0,10,0" />
+                                    <TextBlock Text="{Binding SilverCostForReSpecHour, StringFormat='{} -{0:N0}', Converter={StaticResource ValuePerHourConverter}, FallbackValue='0/h'}" 
+                                               MinWidth="100" FontSize="18" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="RepairCostsTemplate" DataType="{x:Type bindingModel:DashboardBindings}">
+        <Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="/Assets/repair_cross.png" Height="50" Width="50" Margin="0,0,10,0" />
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="{Binding TranslationRepairCostsToday, FallbackValue=REPAIR_COSTS_TODAY}" MinWidth="300" 
+                                   FontSize="18" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Resources/silver.png" Height="14" Width="14" Margin="0,0,10,0" />
+                            <TextBlock Text="{Binding RepairCostsToday, Converter={StaticResource ShortNumberConverter}, 
+                            ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}, StringFormat='{} -{0}', FallbackValue=0}" FontSize="18" FontWeight="Light" 
+                                       Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" VerticalAlignment="Center" Margin="0,0,10,0" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="{Binding TranslationRepairCostsLast7Days, FallbackValue=REPAIR_COSTS_LAST_7_DAYS}" MinWidth="300" 
+                                   FontSize="18" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Resources/silver.png" Height="14" Width="14" Margin="0,0,10,0" />
+                            <TextBlock Text="{Binding RepairCostsLast7Days, Converter={StaticResource ShortNumberConverter}, 
+                                ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}, StringFormat='{} -{0}', FallbackValue=0}" FontSize="18" FontWeight="Light" 
+                                       Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" VerticalAlignment="Center" Margin="0,0,10,0" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Text="{Binding TranslationRepairCostsLast30Days, FallbackValue=REPAIR_COSTS_LAST_30_DAYS}" MinWidth="300" 
+                                   FontSize="18" FontWeight="Light" Foreground="{StaticResource SolidColorBrush.Text.1}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Resources/silver.png" Height="14" Width="14" Margin="0,0,10,0" />
+                            <TextBlock Text="{Binding RepairCostsLast30Days, Converter={StaticResource ShortNumberConverter}, 
+                            ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}, StringFormat='{} -{0}', FallbackValue=0}" FontSize="18" FontWeight="Light" 
+                                       Foreground="{StaticResource SolidColorBrush.Accent.Red.3}" VerticalAlignment="Center" Margin="0,0,10,0" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Visibility="{Binding RepairCostsChestVisibility}" Orientation="Horizontal">
+                        <Label Content="Current repair costs:" Margin="5,0" />
+                        <Label Content="{Binding RepairCostsChest}" Margin="5,0" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

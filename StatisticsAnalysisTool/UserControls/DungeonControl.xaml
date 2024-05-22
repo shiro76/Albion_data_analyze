@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="StatisticsAnalysisTool.UserControls.DungeonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:StatisticsAnalysisTool.ViewModels"
+             xmlns:vwp="clr-namespace:WpfToolkit.Controls;assembly=VirtualizingWrapPanel"
+             xmlns:dungeon="clr-namespace:StatisticsAnalysisTool.Dungeon"
+             mc:Ignorable="d" 
+             d:DesignHeight="1600" d:DesignWidth="1000"
+             d:DataContext="{d:DesignInstance Type=viewModels:MainWindowViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="{Binding DungeonBindings.GridSplitterPosition ,Mode=TwoWay, FallbackValue=*}"/>
+        </Grid.RowDefinitions>
+
+        <GridSplitter Grid.Row="1" ResizeDirection="Rows" ResizeBehavior="PreviousAndNext" HorizontalAlignment="Stretch" 
+                      Margin="0,0,1,1" Background="{StaticResource SolidColorBrush.Accent.Blue.4}" />
+
+        <Grid Row="0" Margin="0,5,0,6" Grid.RowSpan="2">
+            <ScrollViewer>
+                <Grid>
+                    <StackPanel Orientation="Vertical">
+                        <DockPanel>
+                            <ComboBox Width="200" Height="26" Margin="0,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                      ItemsSource="{Binding DungeonBindings.DungeonStatTimeTypes}" 
+                                      SelectedItem="{Binding DungeonBindings.SelectedStatsTimeType}" 
+                                      IsSynchronizedWithCurrentItem="True" DisplayMemberPath="Name" SelectedValuePath="StatTimeType" />
+
+                            <ComboBox Width="200" Height="26" Margin="5,5" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                      ItemsSource="{Binding DungeonBindings.DungeonStatsType}" 
+                                      SelectedItem="{Binding DungeonBindings.SelectedDungeonStatsType}" 
+                                      IsSynchronizedWithCurrentItem="True" DisplayMemberPath="Name" SelectedValuePath="StatsViewType" />
+                        </DockPanel>
+                        <!--TODO: Tier is currently not recognized. Value must be searched for again. - Is always set to true for the time being-->
+                        <!--<ContentPresenter ContentTemplate="{StaticResource DungeonStatsFilterTemplate}" Content="{Binding DungeonBindings.DungeonStatsFilter}"/>-->
+                        <Separator Background="{StaticResource SolidColorBrush.Background.3}" Height="4" Margin="0,2,0,2" />
+
+                        <ContentPresenter ContentTemplate="{StaticResource Dungeon.Stats.Template}" Content="{Binding DungeonBindings.Stats}" Margin="0,10,0,0"/>
+                        <Separator Background="{StaticResource SolidColorBrush.Background.3}" Height="4" Margin="0,2,0,2" />
+
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" MinWidth="250" Margin="0,10,0,0">
+                                <Label Content="{Binding DungeonBindings.Translation.DeleteAndReset, FallbackValue=DELETE__AND__RESET}" 
+                                       Style="{StaticResource HeaderStyle.Tracking.Title}" Foreground="{StaticResource SolidColorBrush.Accent.Blue.2}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical" Margin="0,0,5,0">
+                                        <Button Content="{Binding Translation.DeleteSelectedDungeons, FallbackValue=DELETE__SELECTED__DUNGEONS}" Height="26" MaxWidth="250" 
+                                                Margin="0,2,0,5" Click="BtnDeleteSelectedDungeons_Click" />
+                                        <Button Content="{Binding Translation.DeleteZeroFameDungeons, FallbackValue='DELETE__ZERO__FAME__DUNGEONS'}" Height="26" MaxWidth="250" 
+                                                Margin="0,2,0,5" Click="BtnDeleteZeroFameDungeons_Click" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+                                        <Button Content="{Binding Translation.ResetDungeonTracking, FallbackValue=RESET__DUNGEON__TRACKING}" Height="26" MaxWidth="250" 
+                                                Margin="0,2,0,5" Click="BtnDungeonTrackingReset_Click" />
+                                        <Button Content="{Binding Translation.ResetTodaysDungeons, FallbackValue='RESET__TODAYS__DUNGEONS'}" Height="26" MaxWidth="250" 
+                                                Margin="0,2,0,5" Click="BtnResetTodaysDungeons_Click" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                            <ContentControl Margin="0,0,0,0" ContentTemplate="{StaticResource DungeonOptionsObjectTemplate}" Content="{Binding DungeonBindings.DungeonOptionsObject}" />
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Right" Width="250" Height="auto" VerticalAlignment="Top">
+                        <DockPanel Height="auto" VerticalAlignment="Top">
+                            <ContentControl ContentTemplate="{StaticResource DungeonCloseTimerTemplate}" Content="{Binding DungeonBindings.DungeonCloseTimer}" />
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Row="2">
+            <Grid.Resources>
+                <dungeon:DungeonDataTemplateSelector x:Key="DungeonDataTemplateSelector"
+                                                     RandomDungeonTemplate="{StaticResource RandomDungeonTemplate}"
+                                                     CorruptedTemplate="{StaticResource CorruptedTemplate}" 
+                                                     HellGateTemplate="{StaticResource HellGateTemplate}"
+                                                     ExpeditionTemplate="{StaticResource ExpeditionTemplate}" 
+                                                     MistsTemplate="{StaticResource MistsTemplate}" 
+                                                     MistsDungeonTemplate="{StaticResource MistsDungeonTemplate}" />
+            </Grid.Resources>
+            <vwp:VirtualizingItemsControl ItemsSource="{Binding DungeonBindings.DungeonsCollectionView, IsAsync=True, Mode=OneWay}"
+                                          ItemTemplateSelector="{StaticResource DungeonDataTemplateSelector}"
+                                          VirtualizingPanel.CacheLengthUnit="Item"
+                                          VirtualizingPanel.CacheLength="10,10"
+                                          VirtualizingPanel.ScrollUnit="Pixel"
+                                          VirtualizingPanel.VirtualizationMode="Standard"
+                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                          ScrollViewer.VerticalScrollBarVisibility="Visible" />
+        </Grid>
+    </Grid>
+</UserControl>

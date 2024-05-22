@@ -209,5 +209,5 @@ public class DonationViewModel : BaseViewModel
 
     public static string PatreonUrl => Settings.Default.PatreonUrl;
     public static string DonateUrl => Settings.Default.DonateUrl;
-    public static string GitHubSponsorsUrl => Settings.Default.GitHubSponsorsUrl;
+    //public static string GitHubSponsorsUrl => Settings.Default.GitHubSponsorsUrl;
 }

@@ -171,15 +171,6 @@ namespace StatisticsAnalysisTool.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://discord.com/invite/sahSrSPmaJ")]
-        public string DiscordUrl {
-            get {
-                return ((string)(this["DiscordUrl"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("FavoriteItems.json")]
@@ -551,6 +542,15 @@ namespace StatisticsAnalysisTool.Properties {
             }
             set {
                 this["GuildFileName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://discord.gg/GCR8Udcf8A")]
+        public string DiscordUrl {
+            get {
+                return ((string)(this["DiscordUrl"]));
             }
         }
     }

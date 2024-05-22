@@ -10,7 +10,7 @@ public static class ShortcutController
     {
         // ReSharper disable once SuspiciousTypeConversion.Global
         var link = (IShellLink)new ShellLink();
-        link.SetDescription("Statistics Analysis Tool");
+        link.SetDescription("data Analyse Tool");
         link.SetPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "StatisticsAnalysisTool.exe"));
 
         // ReSharper disable once SuspiciousTypeConversion.Global

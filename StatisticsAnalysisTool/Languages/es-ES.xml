@@ -434,7 +434,7 @@
 	<translation name="DESCRIPTION_TRACK_MY_GAME">¿Qué necesito hacer para poder rastrear mi juego?</translation>
 	<translation name="DESCRIPTION_TRACK_MY_GAME_DETAILS_1">1. ¡Necesitas Windows 10 o superior!</translation>
 	<translation name="DESCRIPTION_TRACK_MY_GAME_DETAILS_2">2. Descargue e instale el instalador de Npcap: </translation>
-	<translation name="DESCRIPTION_TRACK_MY_GAME_DETAILS_3">3. Inicie Statistics Analysis Tool (reinicie una vez)</translation>
+	<translation name="DESCRIPTION_TRACK_MY_GAME_DETAILS_3">3. Inicie Data Analysis Tool (reinicie una vez)</translation>
 	<translation name="DESCRIPTION_TRACK_MY_GAME_DETAILS_4">4. Inicie el juego</translation>
 	<translation name="DESCRIPTION_TRACK_MY_GAME_DETAILS_5">5. Seleccione Seguimiento en el menú</translation>
 	<translation name="DESCRIPTION_TRACK_MY_GAME_DETAILS_6">6. Haga clic en el botón de ENCENDIDO / APAGADO para comenzar a rastrear. Si el botón es azul y el círculo está a la derecha, el seguimiento está activado.</translation>

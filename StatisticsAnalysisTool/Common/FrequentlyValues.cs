@@ -41,12 +41,12 @@ public static class FrequentlyValues
     public static readonly Dictionary<GameLanguage, string> GameLanguages = new()
     {
         {GameLanguage.UnitedStates, "EN-US"},
+        {GameLanguage.France, "FR-FR"},
+        {GameLanguage.Spain, "ES-ES"},
         {GameLanguage.Germany, "DE-DE"},
         {GameLanguage.Russia, "RU-RU"},
         {GameLanguage.Poland, "PL-PL"},
         {GameLanguage.Brazil, "PT-BR"},
-        {GameLanguage.France, "FR-FR"},
-        {GameLanguage.Spain, "ES-ES"},
         {GameLanguage.Chinese, "ZH-CN"},
         {GameLanguage.Korean, "KO-KR"},
         {GameLanguage.Italy, "IT-IT"},

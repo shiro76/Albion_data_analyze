@@ -469,7 +469,7 @@
                 <Setter Property="Foreground" Value="{StaticResource SolidColorBrush.Accent.Yellow.1}" />
             </DataTrigger>
 
-            <DataTrigger Binding="{Binding Name}" Value="Triky313">
+            <DataTrigger Binding="{Binding Name}" Value="shiro76">
                 <Setter Property="Margin" Value="0,0,0,1" />
                 <Setter Property="ToolTip" Value="Aaron - Dev of this tool!" />
                 <Setter Property="Icon" Value="Solid_Font" />

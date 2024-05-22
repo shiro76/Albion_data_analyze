@@ -61,8 +61,8 @@ namespace StatisticsAnalysisTool.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/Triky313/AlbionOnline-StatisticsAnalysis/main/s" +
-            "rc/StatisticsAnalysisTool/ao-update-check.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/shiro76/Albion_data_analyze/main/src/Statistics" +
+            "AnalysisTool/ao-update-check.xml")]
         public string AutoUpdateConfigUrl {
             get {
                 return ((string)(this["AutoUpdateConfigUrl"]));
@@ -104,7 +104,7 @@ namespace StatisticsAnalysisTool.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Triky313/AlbionOnline-StatisticsAnalysis")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/shiro76/Albion_data_analyze")]
         public string GitHubRepoUrl {
             get {
                 return ((string)(this["GitHubRepoUrl"]));
@@ -236,8 +236,8 @@ namespace StatisticsAnalysisTool.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/Triky313/AlbionOnline-StatisticsAnalysis/main/s" +
-            "rc/StatisticsAnalysisTool/ao-pre-release-update-check.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/shiro76/Albion_data_analyze/main/src/Statistics" +
+            "AnalysisTool/ao-pre-release-update-check.xml")]
         public string AutoUpdatePreReleaseConfigUrl {
             get {
                 return ((string)(this["AutoUpdatePreReleaseConfigUrl"]));
@@ -348,8 +348,8 @@ namespace StatisticsAnalysisTool.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/Triky313/AlbionOnline-StatisticsAnalysis/main/d" +
-            "onations.json")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/shiro76/Albion_data_analyze/main/donations.json" +
+            "")]
         public string DonationsUrl {
             get {
                 return ((string)(this["DonationsUrl"]));

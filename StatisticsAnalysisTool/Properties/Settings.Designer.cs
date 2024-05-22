@@ -403,7 +403,7 @@ namespace StatisticsAnalysisTool.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/sponsors/shiro76")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/shiro76")]
         public string GitHubSponsorsUrl {
             get {
                 return ((string)(this["GitHubSponsorsUrl"]));

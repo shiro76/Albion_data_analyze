@@ -111,7 +111,7 @@
       <Value Profile="(Default)">temp</Value>
     </Setting>
     <Setting Name="GitHubSponsorsUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://github.com/sponsors/shiro76</Value>
+      <Value Profile="(Default)">https://github.com/shiro76</Value>
     </Setting>
     <Setting Name="TradesFileName" Type="System.String" Scope="User">
       <Value Profile="(Default)">Trades.json</Value>
